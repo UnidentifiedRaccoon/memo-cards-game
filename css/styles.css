@@ -1,0 +1,279 @@
+body { 
+
+    font-family: Arial, sans-serif; /* шрифт */ 
+
+    background: black; /* цвет */ 
+
+} 
+
+ 
+
+/* устанавливает отступы для заголовка игры */ 
+
+.header { 
+
+    padding: 15px 0; 
+
+} 
+
+ 
+
+/* устанавливает стиль для заголовка игры */ 
+
+.header__title { 
+
+    text-align: center; 
+
+    margin: 0; 
+
+    color: #fff; 
+
+    padding-bottom: 30px; 
+
+} 
+
+ 
+
+/* устанавливает стиль для контейнера игрового раздела */ 
+
+.game-section__container { 
+
+    display: flex; 
+
+    flex-direction: column; 
+
+    align-items: center; 
+
+    justify-content: center; 
+
+} 
+
+ 
+
+/* устанавливает стиль для заголовка игрового меню */ 
+
+.game-menu__title { 
+
+    margin: 0; 
+
+    margin-bottom: 30px; 
+
+    text-align: center; 
+
+    color: #fff; 
+
+} 
+
+ 
+
+/* устанавливает стиль для кнопок выбора уровня сложности и кнопок перезапуска игры */ 
+
+.game-menu__difficult-btn, 
+
+.restart-btn { 
+
+    font-size: 18px; /* размер шрифта */ 
+
+    font-weight: bold; /* жирный шрифт */ 
+
+    cursor: pointer; /* мы устанавливаем курсор на кнопке в виде указателя */ 
+
+    border: none; /* удаляем границу кнопки */ 
+
+    background: transparent; /* фоновый цвет кнопки как прозрачны */ 
+
+    color: #222; 
+
+    /* плавный переход для изменения цвета фона и цвета текста кнопки при наведении курсора на кнопку */ 
+
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;  
+
+} 
+
+ 
+
+/* устанавливает стиль для фона кнопок выбора уровня сложности и кнопок перезапуска игры */ 
+
+.game-menu__difficult-btn { 
+
+    margin-bottom: 10px; 
+
+    padding: 15px 20px; 
+
+    background-color: #5dc6ff; 
+
+} 
+
+ 
+
+/* устанавливает стиль для кнопок выбора уровня сложности при наведении на них курсора мыши (псевдокласс) */ 
+
+.game-menu__difficult-btn:hover { 
+
+    transition: background-color .3s ease-in-out, color .3s ease-in-out; 
+
+    background-color: #222; 
+
+    color: #fff; 
+
+} 
+
+ 
+
+/* устанавливает стиль для игрового поля */ 
+
+.game-table { 
+
+    max-width: 500px; /* максимальная ширина */ 
+
+    display: inline-flex; /* строчный элемент */ 
+
+    flex-wrap: wrap; /* перенос на новую строчку при полном заполнении */ 
+
+    justify-content: center; /* выравнивание по центру */ 
+
+} 
+
+ 
+
+/* устанавливает стиль для игровых карт */ 
+
+.game-card { 
+
+    width: 50px; /* ширина */ 
+
+    height: 100px; /* высота */ 
+
+    /* фиксированную ширину, которая будет соответствовать 23% ширины контейнера,  
+
+    и не будет растягиваться или сжиматься при изменении размеров контейнера */ 
+
+    flex: 0 0 23%;  
+
+    /* соотношение сторон для карточки как 1:1, что означает, что карточка будет иметь квадратную форму */ 
+
+    aspect-ratio: 1; 
+
+    display: flex; /* элемент адекватно располагается внутри контейнера */ 
+
+    justify-content: center; /* выравниевание по цетру внутри карточки */ 
+
+    align-items: center; /* выравниевание по цетру внутри карточки */ 
+
+    background: purple; 
+
+    border-radius: 15px; /* скругление углов карточек */ 
+
+    transition: all 0.2s linear; /* эффект переворота карточки */ 
+
+    margin: 1%; /* отступы между карточками */ 
+
+} 
+
+ 
+
+/* устанавливает стиль для иконок на игровых картах */ 
+
+.game-card i { 
+
+    font-size: 40px; /* размер шрифта */ 
+
+    display: none; /* скрытие второй стороны иконки */ 
+
+} 
+
+ 
+
+/* Устанавливает стиль для ? */ 
+
+.game-card i+i { 
+
+    display: block;  
+
+} 
+
+ 
+
+/* устанавливает стиль для переворачивания игровых карт (приоритет над другими свойствами) */ 
+
+.game-card.flip { 
+
+    background: #5dc6ff !important; 
+
+    /* анимация переворачивания */ 
+
+    transform: perspective(100px) rotateY(180deg); 
+
+} 
+
+ 
+
+/* устанавливает стиль для открытых игровых карт после их переворачивания */ 
+
+.game-card.flip i { 
+
+    display: block; 
+
+} 
+
+/* иконка с ? скрывается */ 
+
+.game-card.flip i+i { 
+
+    display: none; 
+
+} 
+
+ 
+
+/* устанавливает стиль для корректно угаданных игровых карт (приоритет над другими свойствами) */ 
+
+.game-card.successfully { 
+
+    background: #76db82 !important; 
+
+} 
+
+ 
+
+/* устанавливает стиль для игровых карт при наведении на них курсора мыши */ 
+
+.game-card:hover { 
+
+    background: #d1d1c0; 
+
+} 
+
+ 
+
+/* кнопка рестарта */ 
+
+.restart-btn { 
+
+    margin-top: 15px; 
+
+    padding: 15px 20px; 
+
+    background-color: #5dc6ff; 
+
+} 
+
+ 
+
+.timer-div { 
+
+    color: #fff; 
+
+    padding: 10px; 
+
+    font-size: 24px; /* размер шрифта */ 
+
+  } 
+
+ 
+
+table td{ 
+
+    color: green; /* цвет итоговой таблицы после завершения */ 
+
+} 
